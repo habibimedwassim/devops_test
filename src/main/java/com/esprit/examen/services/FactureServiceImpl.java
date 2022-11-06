@@ -23,6 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 @Transactional
 public class FactureServiceImpl implements IFactureService {
 
+	
 	@Autowired
 	FactureRepository factureRepository;
 	@Autowired
