@@ -1,4 +1,3 @@
-//create pipeline to display date
 pipeline {
     agent any
     stages {
