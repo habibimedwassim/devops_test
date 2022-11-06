@@ -12,16 +12,10 @@ pipeline {
                 url: 'https://github.com/habibimedwassim/devops_test.git'
             }
         }
-        stage('Build') {
+        stage('Building JAR') {
             steps {
                 echo 'Building with Maven'
                 sh 'mvn clean install -DskipTests'
-            }
-            //if success 
-            post {
-                success {
-                    echo 'Build Success'
-                }
             }
         }
     }
