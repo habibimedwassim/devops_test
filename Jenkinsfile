@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    tools {
+        jdk 'JAVA_HOME'
+        maven 'M2_HOME'
+    }
     stages {
         stage('GIT Checkout') {
             steps {
@@ -10,8 +14,14 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo "Building"
-                sh 'date'
+                echo 'Building with Maven'
+                sh 'mvn clean install -DskipTests'
+            }
+            //if success 
+            post {
+                success {
+                    echo 'Build Success'
+                }
             }
         }
     }
